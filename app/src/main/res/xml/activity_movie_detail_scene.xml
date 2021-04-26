@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:onTouchUp="autoCompleteToStart"
+            app:touchAnchorSide="top" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start" />
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/cvMovieDetail"
+            android:layout_width="38dp"
+            android:layout_height="57dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="0dp" />
+
+        <Constraint
+            android:id="@+id/tvTitleDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:alpha="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cvMovieDetail"
+            app:layout_constraintBottom_toBottomOf="@id/cvMovieDetail" />
+
+        <Constraint
+            android:id="@+id/tvYearDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleDetail" />
+
+        <Constraint
+            android:id="@+id/btnSubscribe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:alpha="0.45"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvMovieDetail" />
+    </ConstraintSet>
+</MotionScene>

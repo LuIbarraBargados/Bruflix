@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/purpley_grey" />
+            <size
+                android:height="18dp"
+                android:width="18dp" />
+        </shape>
+    </item>
+    <item
+        android:top="2dp"
+        android:bottom="2dp"
+        android:end="2dp"
+        android:start="2dp"
+        android:drawable="@drawable/ic_round_close_24" />
+</layer-list>

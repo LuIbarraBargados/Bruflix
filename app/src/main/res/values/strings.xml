@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Bruflix</string>
+    <!--home-->
+    <string name="all_movies">Todas</string>
+    <string name="subscribed_movies">Suscriptas</string>
+    <!--movie detail -->
+    <string name="subscribed">Suscripto</string>
+    <string name="unsubscribed">Suscribirme</string>
+    <!--movie search -->
+    <string name="add">Agregar</string>
+    <string name="remove">Agregado</string>
+    <string name="error_message">Algo salió mal. Intente más tarde.</string>
+    <string name="btn_subscribe">Suscribirme</string>
+    <string name="overview_label">Overview</string>
+    <string name="cancel">Cancelar</string>
+</resources>

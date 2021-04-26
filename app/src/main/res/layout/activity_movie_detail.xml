@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.movieDetail.MovieDetailActivity">
+
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="13dp"
+        android:paddingVertical="25dp"
+        app:layoutDescription="@xml/activity_movie_detail_scene">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitleDetail"
+            style="@style/Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            tools:text="Breaking Bad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvMovieDetail" />
+
+        <TextView
+            android:id="@+id/tvYearDetail"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="2011"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitleDetail" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvMovieDetail"
+            android:layout_width="180dp"
+            android:layout_height="260dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivMovieDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_movie_test" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubscribe"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="13dp"
+            android:text="@string/btn_subscribe"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:cornerRadius="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvYearDetail"
+            app:strokeColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tvDescriptionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24sp"
+            android:layout_marginTop="43dp"
+            android:text="@string/overview_label"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/tvDescriptionDetail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSubscribe" />
+
+        <TextView
+            android:id="@+id/tvDescriptionDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24sp"
+            android:layout_marginTop="23dp"
+            android:lineSpacingExtra="6dp"
+            tools:text="Breaking Bad is an American crime drama television series created
+        and produced by Vince Gilligan. Set and produced in Albuquerque, New Mexico, Breaking Bad is the
+        story of Walter White, a struggling high school chemistry teacher who is diagnosed with inoperable
+        lung cancer at the beginning of the series. He turns to a life of crime, producing and selling methamphetamine,
+        in order to secure his family\'s financial future before he dies, teaming with his former student, Jesse Pinkman.
+        Heavily serialized, the series is known for positioning its characters in seemingly inextricable corners and has
+        been labeled a contemporary western by its creator.Breaking Bad is an American crime drama television series created
+        and produced by Vince Gilligan. Set and produced in Albuquerque, New Mexico, Breaking Bad is the
+        story of Walter White, a struggling high school chemistry teacher who is diagnosed with inoperable
+        lung cancer at the beginning of the series. He turns to a life of crime, producing and selling methamphetamine,
+        in order to secure his family\'s financial future before he dies, teaming with his former student, Jesse Pinkman.
+        Heavily serialized, the series is known for positioning its characters in seemingly inextricable corners and has
+        been labeled a contemporary western by its creator"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDescriptionTitle" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+    <include android:id="@+id/loading" layout="@layout/layout_loading" />
+</FrameLayout>
