@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.lourdesibarra.bruflix.MovieItemListener
 import com.lourdesibarra.bruflix.databinding.ItemHomeMoviesBinding
 import com.lourdesibarra.bruflix.entities.Movie
-import com.lourdesibarra.bruflix.remote.ApiClient
+import com.lourdesibarra.bruflix.data.ApiClient
 
 class HomeMovieAdapter(
     private val listMovies: List<Movie>,

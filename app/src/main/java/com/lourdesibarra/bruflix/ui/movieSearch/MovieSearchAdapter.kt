@@ -9,7 +9,7 @@ import com.lourdesibarra.bruflix.MovieSearchItemListener
 import com.lourdesibarra.bruflix.R
 import com.lourdesibarra.bruflix.databinding.ItemSearchMovieBinding
 import com.lourdesibarra.bruflix.entities.Movie
-import com.lourdesibarra.bruflix.remote.ApiClient
+import com.lourdesibarra.bruflix.data.ApiClient
 
 class MovieSearchAdapter(
     private val listMovies: List<Movie>,

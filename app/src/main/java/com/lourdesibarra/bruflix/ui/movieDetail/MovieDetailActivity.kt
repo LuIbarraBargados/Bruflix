@@ -20,7 +20,7 @@ import com.bumptech.glide.request.target.Target
 import com.lourdesibarra.bruflix.R
 import com.lourdesibarra.bruflix.databinding.ActivityMovieDetailBinding
 import com.lourdesibarra.bruflix.entities.Movie
-import com.lourdesibarra.bruflix.remote.ApiClient
+import com.lourdesibarra.bruflix.data.ApiClient
 import com.lourdesibarra.bruflix.ui.error.ErrorActivity
 import com.lourdesibarra.bruflix.utils.SharedPreferencesManager
 

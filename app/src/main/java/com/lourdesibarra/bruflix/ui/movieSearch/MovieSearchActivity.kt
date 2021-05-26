@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lourdesibarra.bruflix.MovieSearchItemListener
@@ -71,12 +72,12 @@ class MovieSearchActivity : AppCompatActivity(), MovieSearchItemListener {
 
     private fun initViewModel() {
         viewModel = ViewModelProvider(this)[MovieSearchViewModel::class.java]
-        viewModel.moviesLiveData.observe(this) { movies ->
+        viewModel.moviesLiveData.observe(this, Observer { movies ->
             setupMovieSearchResults(movies)
-        }
-        viewModel.errorLiveData.observe(this) {
+        })
+        viewModel.errorLiveData.observe(this, Observer {
             goToErrorActivity()
-        }
+        })
     }
 
     private fun setupMovieSearchResults(movies: List<Movie>) {

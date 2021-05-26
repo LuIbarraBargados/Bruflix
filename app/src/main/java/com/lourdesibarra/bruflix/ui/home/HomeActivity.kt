@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lourdesibarra.bruflix.MovieItemListener
@@ -61,16 +62,16 @@ class HomeActivity : AppCompatActivity(), MovieItemListener {
 
     private fun initViewModel() {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-        viewModel.genreLiveData.observe(this) { genres ->
+        viewModel.genreLiveData.observe(this, Observer { genres ->
             this.genres = genres
             viewModel.getTrendingMoviesThisWeek(genres, subscribedMovies)
-        }
-        viewModel.moviesLiveData.observe(this) { movies ->
+        })
+        viewModel.moviesLiveData.observe(this, Observer { movies ->
             setupTrendingMovieList(movies)
-        }
-        viewModel.errorLiveData.observe(this) {
+        })
+        viewModel.errorLiveData.observe(this, Observer {
             goToErrorActivity()
-        }
+        })
     }
 
     private fun setupTrendingMovieList(movies: List<Movie>) {

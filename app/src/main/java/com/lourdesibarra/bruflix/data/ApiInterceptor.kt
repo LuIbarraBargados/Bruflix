@@ -1,4 +1,4 @@
-package com.lourdesibarra.bruflix.remote
+package com.lourdesibarra.bruflix.data
 
 import com.lourdesibarra.bruflix.BuildConfig
 import okhttp3.HttpUrl

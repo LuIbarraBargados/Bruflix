@@ -2,43 +2,46 @@ package com.lourdesibarra.bruflix.ui.movieSearch
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.lourdesibarra.bruflix.entities.Genre
 import com.lourdesibarra.bruflix.entities.Movie
-import com.lourdesibarra.bruflix.remote.ApiClient
-import com.lourdesibarra.bruflix.remote.response.MovieListResponse
+import com.lourdesibarra.bruflix.data.ApiClient
+import com.lourdesibarra.bruflix.data.Result
+import com.lourdesibarra.bruflix.data.api.MoviesApi
+import com.lourdesibarra.bruflix.data.repositories.MovieRepository
 import com.lourdesibarra.bruflix.utils.MoviesConverter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlin.Exception
 
 class MovieSearchViewModel : ViewModel() {
 
     val moviesLiveData = MutableLiveData<List<Movie>>()
     val errorLiveData = MutableLiveData<String>()
+    private val movieRepository = MovieRepository(MoviesApi())
 
     fun searchMovie(query: String, genres: List<Genre>?, subscribedMovies: List<Movie>?) {
-        val call = ApiClient.movieService.searchMovie(query)
-        call.enqueue(object : Callback<MovieListResponse> {
-            override fun onResponse(
-                call: Call<MovieListResponse>,
-                response: Response<MovieListResponse>
-            ) {
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        val movies = MoviesConverter.convertTrendingMoviesResponseToMovieList(
-                            it,
-                            genres,
-                            subscribedMovies
-                        )
-                        moviesLiveData.postValue(movies)
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = movieRepository.searchMovie(query)
+            withContext(Dispatchers.Main) {
+                when (result) {
+                    is Result.Success -> {
+                        result.model?.let {
+                            val movies = MoviesConverter.convertTrendingMoviesResponseToMovieList(
+                                it,
+                                genres,
+                                subscribedMovies
+                            )
+                            moviesLiveData.postValue(movies)
+                        }
+                    }
+                    is Result.Error -> {
+                        errorLiveData.postValue(result.exception.message)
                     }
                 }
             }
-
-            override fun onFailure(call: Call<MovieListResponse>, t: Throwable) {
-                errorLiveData.postValue(t.message)
-            }
-        })
+        }
     }
 
     fun updateMovieSearchResult(subscribedMovies: List<Movie>) {

@@ -1,4 +1,4 @@
-package com.lourdesibarra.bruflix.remote.response
+package com.lourdesibarra.bruflix.data.response
 
 data class MovieGenresResponse(
     val genres: List<GenreResponse>

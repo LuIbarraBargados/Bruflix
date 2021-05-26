@@ -2,8 +2,8 @@ package com.lourdesibarra.bruflix.utils
 
 import com.lourdesibarra.bruflix.entities.Genre
 import com.lourdesibarra.bruflix.entities.Movie
-import com.lourdesibarra.bruflix.remote.response.MovieGenresResponse
-import com.lourdesibarra.bruflix.remote.response.MovieListResponse
+import com.lourdesibarra.bruflix.data.response.MovieGenresResponse
+import com.lourdesibarra.bruflix.data.response.MovieListResponse
 
 object MoviesConverter {
     fun convertTrendingMoviesResponseToMovieList(

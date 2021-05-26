@@ -1,4 +1,4 @@
-package com.lourdesibarra.bruflix.remote
+package com.lourdesibarra.bruflix.data
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
